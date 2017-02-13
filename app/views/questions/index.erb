@@ -1,0 +1,8 @@
+     <h3> <a href='questions/new'>Home</a></h3>
+     <p><a href='/signout'><button type="submit">Sign Out</button></a></p>
+     <p><a href='/signout'><button type="submit">Sign Out</button></a></p>
+
+     <% @questions.each do |question| %>
+	 <a href= "/question/id"><h2><%= question.text %></h2><br></a>
+	 <%= question.created_at %><br>
+     <% end %>

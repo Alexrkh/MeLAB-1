@@ -9,13 +9,19 @@ end
 post '/signup' do
 	    if params[:password] == params[:password2]
 		user = User.new(:name=>params[:username],:email=>params[:email],:password=>params[:password])
-	    	if user.save
-	    		@welcome = "Your Account has been created successfully!!!"
-				erb :"static/index"
-    		else
-    			@error3 = "your email is not valid!!!"
-    			redirect '/'
+			if user.valid?
+	    	 	if user.save
+	    			@welcome = "Your Account has been created successfully!!!"
+					erb :"static/index"
+    			else
+    				@error3 = "your email is not valid!!!"
+    				erb :"static/signup"
+       	 		end
+       	 	else 
+       	 		@error4 = user.errors.messages
+       	 		erb :"static/signup"
        	 	end
+
        	 else 
        	 	@error2 = "Password does not match!!!"
        	 	erb :"static/signup"
