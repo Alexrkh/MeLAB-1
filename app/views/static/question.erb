@@ -1,10 +1,15 @@
-<div class="question">
+<form class="question" action="question/new" method="post">
+<div>
 <p>
-Question : <input type="text" placeholder="Enter your question here" size="400" >
+Question : <input type="text" name="text" placeholder="Enter your question here" size="400" >
 </p>
 </div>
 <br />
 <button align='center' type="question_submit">Submit</button>
+</form>
+<form class="answer" action="question/id" method="post">
+
+
 <br />
 <div class="answer">
 <p>
@@ -13,3 +18,5 @@ Answer : <input type="text" placeholder="Your question still not yet answer by o
 <br />
 <button align='center' type="answer_submit">Submit</button>
 </div>
+</form>
+<a href='/signout'><button type="submit">Sign Out</button></a>

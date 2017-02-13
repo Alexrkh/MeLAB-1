@@ -1,5 +1,4 @@
 get '/' do
-  @error = params[:x]
   erb :"static/index"
 end
 
@@ -8,34 +7,35 @@ get '/signup' do
 end
 
 post '/signup' do
-	if params[:password] == params[password_comfirmation]
-	user = User.new(:name=>params[:username],:email=>params[:email],:password=>params[:password],)
-		if user.save
-		redirect 'sessions/login'
-    	else
-    	redirect '/? x= signup fail'
-		end
-	redirect '/? x= signup fail'
+	    if params[:password] == params[:password2]
+		user = User.new(:name=>params[:username],:email=>params[:email],:password=>params[:password])
+	    	if user.save
+	    		@welcome = "Your Account has been created successfully!!!"
+				erb :"static/index"
+    		else
+    			@error3 = "your email is not valid!!!"
+    			redirect '/'
+       	 	end
+       	 else 
+       	 	@error2 = "Password does not match!!!"
+       	 	erb :"static/signup"
+       	 end
 end
 
 
 post '/login' do
-	user = User.find_by(:username=>params[:username])
+	user = User.find_by(:name=>params[:username])
 	if user && user.authenticate(params[:password])
 		session[:user_id] = user.id
-	redirect 'static/question'
+	    redirect '/question/new'
     else
-    redirect '/? x= signup fail'
+    	@error = "Invalid username or password!!!"
+    	erb :"static/index"
 	end
 end
 
-get '/sessions' do
-	 erb 'static/question'
-end
-
-get '/sessions/logout' do
-	session.clear
+get '/signout' do
+	session[:user_id] = nil 
 	redirect '/'
-
 end
 

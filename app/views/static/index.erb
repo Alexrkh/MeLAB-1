@@ -1,20 +1,22 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+
  <center>
+<h1>Welcome to BongAlex Quora</h1>
+<h2>Only for those with brains! </h2>
+
+              <% if @welcome %>
+              <%= @welcome %>
+              <% end %>
+              
  <form action="/login" method="post">
-  <div class="container">
-  
-    <% if @error.exist? %>
-    <p><%= @error %></p>
-    <% end %> 
+  <div class="container"> 
  
     <label><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="name" required>
+    <input type="text" placeholder="Enter Username" name="username" required>
     <br />
     <label><b>Password </b></label>
     <input type="password" placeholder="Enter Password" name="password" required>
     <br />
-    <a href="/sessions/login"><button type="submit">Login</button></a>>
+    <a href="/sessions/login"><button type="submit">Login</button></a>
     <input type="checkbox" checked="checked"> Remember me
   </div>
 
@@ -23,4 +25,8 @@
     <a href="/signup">Sign up</a></span>
   </div>
 </form>
+<br />    
+          <% if @error %>
+          <%= @error %>
+          <% end %>
 </center>

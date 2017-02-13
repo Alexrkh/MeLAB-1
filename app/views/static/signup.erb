@@ -1,31 +1,40 @@
+
+<h3> <a href='/'>Home</a></h3>
 <center><div>
-            <form  action="/signup" method="get"> 
+                <% if @error2 %>
+                <%= @error2 %>
+                <% end %>
+                <% if @error3 %>
+                <%= @error3 %>
+                <% end %>
+
+            <form action="/signup" method="post"> 
                 <h1> Sign up </h1> 
-                <img src="d.jpg">
                 <p> 
-                    <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
+                    <label class="uname">Your username</label>
                     <input type="text" name="username" placeholder="mysuperusername690" />
                 </p>
                 <p> 
-                    <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
+                    <label class="you"> Your email</label>
                     <input type="text" name="email" placeholder="mysupermail@mail.com"/> 
                 </p>
                 <p> 
-                    <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
+                    <label class="youpasswd">Your password </label>
                     <input type="password" name="password" placeholder="eg. X8df!90EO"/>
                 </p>
                 <p> 
-                    <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
-                    <input type="password" name="password_comfirmation" placeholder="eg. X8df!90EO"/>
+                    <label class="youpasswd">Please confirm your password </label>
+                    <input type="password" name="password2" placeholder="eg. X8df!90EO"/>
                 </p>
                 <p class="signin button"> 
                     <input type="submit" value="submit"/> 
                 </p>
+            </form>
                 <p class="change_link">  
                     Already a member ?
-                    <a href="form.html" class="to_register"> Go and log in </a>
+                    <a href='/' class="to_register"> Go and log in </a>
                 </p>
-            </form>
+          
         </div>
  </center>
         
