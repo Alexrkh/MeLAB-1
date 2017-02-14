@@ -1,6 +1,24 @@
 
-<h3> <a href='/'>Home</a></h3>
-<center><div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Sign up for AB Quora</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/signin.css" rel="stylesheet">
+  </head>
+
+  <body>
+<center>
                 <% if @error2 %>
                 <%= @error2 %>
                 <% end %>
@@ -10,34 +28,34 @@
                 <% if @error4 %>
                 <%= @error4 %>
                 <% end %>
+</center>
+    <div class="container" >
 
-            <form action="/signup" method="post"> 
-                <h1> Sign up </h1> 
-                <p> 
-                    <label class="uname">Your username</label>
-                    <input type="text" name="username" placeholder="mysuperusername690" />
-                </p>
-                <p> 
-                    <label class="you"> Your email</label>
-                    <input type="text" name="email" placeholder="mysupermail@mail.com"/> 
-                </p>
-                <p> 
-                    <label class="youpasswd">Your password </label>
-                    <input type="password" name="password" placeholder="eg. X8df!90EO"/>
-                </p>
-                <p> 
-                    <label class="youpasswd">Please confirm your password </label>
-                    <input type="password" name="password2" placeholder="eg. X8df!90EO"/>
-                </p>
-                <p class="signin button"> 
-                    <input type="submit" value="submit"/> 
-                </p>
-            </form>
+      <form class="form-signin" action="/signup" method="post">
+        <h2 class="form-signin-heading">Sign Up If Your're Awesome!</h2>
+        <label for="inputUsername" class="sr-only">Username</label>
+        <input type="user" id="inputUsername" name="username" class="form-control" placeholder="username" required autofocus>
+        <label for="inputEmail" class="sr-only">Email</label>
+        <input type="email" id="inputEmail" name="email" class="form-control" placeholder="test@test.com" required>
+        <label for="inputUsername" class="sr-only">Username</label>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="password" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword2" name="password2" class="form-control" placeholder="re-enter password" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+      </form>
+
+    </div> <!-- /container -->
+    <center>
                 <p class="change_link">  
                     Already a member ?
-                    <a href='/' class="to_register"> Go and log in </a>
+                    <a href="/" class="to_register"> Go and log in </a>
                 </p>
+    </center>
           
-        </div>
- </center>
-        
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/js/workaround.js"></script>
+  </body>

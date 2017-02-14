@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>Log in for AB Quora Clone</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/css/min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/css/signin.css" rel="stylesheet">
+  </head>
+<body>
+
+<center>
+	   <h2> Welcome <%=current_user.name%></h2>
+        <a href='/questions'><button type="submit">Profile Page</button></a>
+        <br><br>
+       
+            <div class="container">
+                <form class="form-question" action="/question/new" method="post">
+                <h4 class="form-signin-heading">Please write in your question in percise and detail manner.</h4>
+                <br>
+                <label for="inputQuestion" class="sr-only">Question</label>
+                <input type="user" id="inputQuestion" name="question" class="form-control" placeholder="eg. I want to sue my neigbour dog for making my dog pregnant" required autofocus>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                </form>
+            </div>
+
+                    <a href="/question/id"><h6> If you are awesome and highly intelligent, please press here and help other's species with your knowledge :-)</h6></a>
+                    <br>
+                    <a href='/signout'><button type="submit">Sign Out</button></a>
+                    <br>
+	                           <% if @submited %>
+	                           <%= @submited %>
+	                           <%end%>
+	                           <br>
+      
+</center>
+</body>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/js/workaround.js"></script>
