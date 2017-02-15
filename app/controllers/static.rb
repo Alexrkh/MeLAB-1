@@ -1,3 +1,15 @@
+get '/crypto' do
+  erb :"static/crypto"
+end
+
+get '/blockchain' do
+  erb :"static/blockchain"
+end
+
+get '/ptwop' do
+  erb :"static/ptwop"
+end
+
 get '/' do
   erb :"static/homepage"
 end
@@ -8,6 +20,11 @@ end
 
 get '/signup' do
 	erb :"static/signup"
+end
+
+get '/userpage' do
+  @questions = Question.where(user_id: current_user.id)
+  erb :"static/userpage"
 end
 
 post '/signup' do
@@ -34,13 +51,13 @@ end
 
 post '/login' do
 	user = User.find_by(:name=>params[:username])
-	if user && user.authenticate(params[:password])
-		session[:user_id] = user.id
-	    redirect 'questions'
-    else
-    	@error = "Invalid username or password!!!"
-    	erb :"static/login"
-	end
+	   if user && user.authenticate(params[:password])
+		    session[:user_id] = user.id
+        redirect '/userpage'
+      else
+    	   @error = "Invalid username or password!!!"
+    	   erb :"static/login"
+	   end
 end
 
 get '/signout' do

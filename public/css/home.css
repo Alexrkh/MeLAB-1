@@ -35,6 +35,10 @@ body {
   height: 32rem;
 }
 
+.carousel p {
+  color: white;
+  text-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
@@ -66,6 +70,8 @@ body {
   line-height: 1;
   letter-spacing: -.05rem;
 }
+
+
 
 
 /* RESPONSIVE CSS

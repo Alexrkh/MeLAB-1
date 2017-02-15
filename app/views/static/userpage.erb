@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -12,14 +12,15 @@
     <!-- Custom styles for this template -->
     <link href="/css/signin.css" rel="stylesheet">
   </head>
-<body>
 
+<body>    
 <center>
-	   <h2> Welcome <%=current_user.name%></h2>
+        <h2> Welcome <%=current_user.name%></h2>
         <a href='/questions'><button type="submit">Profile Page</button></a>
-        <br><br>
-       
-            <div class="container">
+        <br>
+        <p><a href='/signout'><button type="submit">Sign Out</button></a></p>
+     
+                <div class="container">
                 <form class="form-question" action="/question/new" method="post">
                 <h4 class="form-signin-heading">Please write in your question in percise and detail manner.</h4>
                 <br>
@@ -27,21 +28,40 @@
                 <input type="user" id="inputQuestion" name="question" class="form-control" placeholder="eg. I want to sue my neigbour dog for making my dog pregnant" required autofocus>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
                 </form>
-            </div>
-
-                    <a href="/question/id"><h6> If you are awesome and highly intelligent, please press here and help other's species with your knowledge :-)</h6></a>
-                    <br>
-                    <a href='/signout'><button type="submit">Sign Out</button></a>
-                    <br>
-	                           <% if @submited %>
-	                           <%= @submited %>
-	                           <%end%>
-	                           <br>
-      
+                </div>
+                <a href="/questions"><h6> If you are awesome and highly intelligent, please press here and help other's species with your knowledge :-)</h6></a>
+                <br>
+                             <% if @submited %>
+                             <%= @submited %>
+                             <%end%>
+                             <br><br><br>     
 </center>
 </body>
-    <!-- Bootstrap core JavaScript
+			       <table class="table"> 			
+  				   <thead class="thead-inverse">
+    			 	 <tr>
+      			 <th>#</th>
+      			 <th>Created_at</th>
+      			 <th>Question</th>
+      			 <th>Options</th>
+    				 </tr>
+  					 </thead>
+  								      <% @questions.each do |question| %>
+  								      <tbody>
+    							      <tr>
+      							    <th scope="row">1</th>
+      							    <td><%= question.created_at %></td>
+      							    <td><a href="/<%=quest_id(question)%>"><%= question.text %></a></td>
+      							    <td><a href="/question/<%question.id%>/destroy">Delete</td></a></td>
+    							      </tr>
+    							      </tr>
+  								      </tbody>
+  								      <%end%>           
+			        </table>
+   
+         <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/js/workaround.js"></script>
+</html>

@@ -14,13 +14,20 @@
   </head>
 <body>    
 
-        <div class="card w-75">
-            <div class="card-block">
-                <h3 class="card-title"><h2>Question:</h2><%= @question.text %></h3>
-                    <p class="card-text"><h2>Answer:</h2>Not me.<p>                           </p>
-                    <a href="#" class="btn btn-primary">Like?</a>
-            </div>
-        </div>
+                 <div class="card w-75">
+                 <div class="card-block">
+                 <h3 class="card-title"><h2>Question:</h2><%= @question.text %></h3>
+                 <br><br>
+                 <form action="/question/<%= @question.id %>/edit" method="post">
+                         
+                         <div class="form-group">
+                         <label for="formGroupExampleInput">Edit your question</label>
+                         <input type="text" class="form-control" id="formGroupExampleInput" name="edit" placeholder="eg.. edit question">
+                         </div>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                 </form>
+                 </div>
+                 </div>
 
 
 
@@ -31,3 +38,4 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/js/workaround.js"></script>
 </body>
+</html>
