@@ -47,7 +47,6 @@ end
 post '/questions/:id/answers' do
 	@answer = Answer.new(:text=>params[:answer],:question_id=>params[:id],:user_id=>current_user.id)
 	if @answer.save
-		@success = "Successfully submited an answer"
 		redirect '/questions/answer'
 	else
 		@error = "error while submitting your answer"

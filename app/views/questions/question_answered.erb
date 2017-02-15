@@ -1,3 +1,12 @@
+<link href="/css/signin.css" rel="stylesheet">
+<center>
+        <h2> Welcome <%=current_user.name%></h2>
+        <a href='/userpage'><button type="submit">Profile Page</button></a>
+        <br>
+        <p><a href='/signout'><button type="submit">Sign Out</button></a></p>
+<center>
+
+
 <form method="post" action=<%= create_answer_url(@question) %>>
 <label for="questions">Password</label>
 <input type="text" id="answer" name="answer" class="form-control" aria-describedby="passwordHelpBlock">

@@ -1,26 +1,27 @@
 <link href="/css/signin.css" rel="stylesheet">
 <center>
         <h2> Welcome <%=current_user.name%></h2>
-        <a href='/questions'><button type="submit">Profile Page</button></a>
+        <a href='/userpage'><button type="submit">Profile Page</button></a>
         <br>
         <p><a href='/signout'><button type="submit">Sign Out</button></a></p>
 <center>
 
 
 <%@view.each do |question| %>
-
 <div class="card">
   	<div class="card-block">
     <h4 class="card-title">Question</h4>
     <h6 class="card-subtitle mb-2 text-muted"><h5><%=question.user.name%></h5>   <%=question.created_at%></h6>
     <p class="card-text"><%=question.text %></p>
+    <% question.answers.each do |answer|   %>
+    <p class="card-text"><%= answer.text %></p>
+    <% end %>
     <a href="/<%=quest_id(question)%>/answer/new" class="card-link">Answer</a>
-
-    <a href="#" class="card-link">Like</a>
+	<a href="#" class="card-link">Like</a>
     <a href="#" class="card-link">Dislike</a>
-  </div>
+    </div>
 </div>
-<% end %>
+<%end%>
 
 <label for="inputPassword5">Password</label>
 <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">

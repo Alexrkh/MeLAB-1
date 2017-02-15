@@ -1,17 +1,11 @@
- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-    <title>Log in for AB Quora Clone</title>
-    <!-- Bootstrap core CSS -->
-    <link href="/css/min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="/css/signin.css" rel="stylesheet">
-  </head>
+<link href="/css/signin.css" rel="stylesheet">
+<center>
+        <h2> Welcome <%=current_user.name%></h2>
+        <a href='/userpage'><button type="submit">Profile Page</button></a>
+        <br>
+        <p><a href='/signout'><button type="submit">Sign Out</button></a></p>
+<center>
+
 <body>    
 
                  <div class="card w-75">
