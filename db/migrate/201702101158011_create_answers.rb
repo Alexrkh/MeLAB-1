@@ -6,7 +6,6 @@ class CreateAnswers < ActiveRecord::Migration
       t.integer :user_id
 
       t.timestamps
-      t.datetime: created_at
     end
   end
 end

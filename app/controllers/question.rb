@@ -1,13 +1,13 @@
 #question#index
-get '/questions' do
+# get '/questions' do
+# 	@view = Question.all
+# 	erb :"questions/question_answer"
+# end
+
+get '/questions/answer' do
 	@view = Question.all
 	erb :"questions/question_answer"
 end
-
-# #question#index (show only questions belong to current_user)
-# get '/questions_user'
-# 	@questions = current_user.questions
-# end
 
 # #question#show
 get "/questions/:id" do
@@ -32,10 +32,27 @@ post '/question/:id/edit' do
 	redirect '/userpage'
 end
 
-post '/question/:id/destroy' do
+post '/questions/:id/destroy' do
 	delete_question = Question.find_by(:id=>params[:id])
     delete_question.destroy
+    @questions = Question.all
 	redirect '/userpage'
+end
+
+get '/questions/:id/answer/new' do
+	@question = Question.find(params[:id])
+	erb :"questions/question_answered" 
+end
+
+post '/questions/:id/answers' do
+	@answer = Answer.new(:text=>params[:answer],:question_id=>params[:id],:user_id=>current_user.id)
+	if @answer.save
+		@success = "Successfully submited an answer"
+		redirect '/questions/answer'
+	else
+		@error = "error while submitting your answer"
+		redirect '/questions/answer'
+	end
 end
 
 # #answer#index
