@@ -53,7 +53,7 @@ post '/login' do
 	user = User.find_by(:name=>params[:username])
 	   if user && user.authenticate(params[:password])
 		    session[:user_id] = user.id
-        redirect '/userpage'
+        redirect '/melab_user'
       else
     	   @error = "Invalid username or password!!!"
     	   erb :"static/login"
@@ -65,3 +65,14 @@ get '/signout' do
 	redirect '/'
 end
 
+get '/quora' do
+  redirect '/login'
+end
+
+get '/melab_user' do
+  erb :"static/melab_user"
+end
+
+get '/teams' do
+  erb :"static/teams"
+end
