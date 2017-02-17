@@ -34,17 +34,16 @@
       			 <th>Options</th>
     				 </tr>
   					 </thead>
-  								      <% @questions.each do |question| %>
-  								      <tbody>
-    							      <tr>
-      							    <th scope="row">1</th>
-      							    <td><%= question.created_at %></td>
-      							    <td><a href="/<%=quest_id(question)%>"><%= question.text %></a></td>
-      							    <td><form action="/<%=quest_id(question)%>/destroy" method="post"><button class="btn btn-lg btn-primary btn-block" type="submit">Delete</button></form></td>
-    							      </tr>
-    							      </tr>
-  								      </tbody>
-  								      <%end%>           
+			      <% @questions.each do |question| %>
+  			      <tbody>
+    			      <tr>
+      				    <th scope="row">1</th>
+      				    <td><%= question.created_at %></td>
+      				    <td><a href="/<%=quest_id(question)%>"><%= question.text %></a></td>
+      				    <td><form action="/<%=quest_id(question)%>/destroy" method="post"><button class="btn btn-lg btn-primary btn-block" type="submit">Delete</button></form></td>
+    			      </tr>
+  			      </tbody>
+			      <%end%>           
 			        </table>
    
          <!-- Bootstrap core JavaScript

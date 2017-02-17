@@ -17,11 +17,12 @@ end
 
 # #question#new
 post "/question/new" do
-     new_question = Question.create(:text=>params[:question],:user_id=> current_user.id)
+     @new_question = Question.create(:text=>params[:question],:user_id=> current_user.id)
+     @new_question.to_json
      # new_question = current_user.questions.create(text: params[:questions])
-     @submited = "You have sucessfully submited a question!!!"
-     @questions = Question.all
-     redirect '/userpage'
+     # @submited = "You have sucessfully submited a question!!!"
+     # @questions = Question.all
+     # redirect '/userpage'
 end
 
 # #question#edit
